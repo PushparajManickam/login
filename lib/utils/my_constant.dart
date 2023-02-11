@@ -5,7 +5,8 @@ class MyConstants extends InheritedWidget {
 
   const MyConstants({required Widget child, required Key key}): super(key: key, child: child);
 
-  final String successMessage = 'Some message';
+  final String svgPath = 'assets/svg/';
+  
 
   @override
   bool updateShouldNotify(MyConstants oldWidget) => false;

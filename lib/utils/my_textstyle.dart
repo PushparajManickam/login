@@ -13,4 +13,9 @@ class MyTextField {
     fontSize: largeSize,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle textFieldTextStyle = GoogleFonts.spectral(
+    // color: MyColor.blackColor,
+    fontSize: normalSize,
+    fontWeight: FontWeight.w500,
+  );
 }
