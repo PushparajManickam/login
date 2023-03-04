@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login/utils/globals.dart' as globals;
+import 'package:login/utils/my_box_model.dart';
 import 'package:login/utils/my_colors.dart';
 import 'package:login/utils/my_global_declaration.dart';
-import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_textstyle.dart';
-import 'package:login/utils/globals.dart' as globals;
+import 'package:login/widget/swipe_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,14 +20,13 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    Size _myDeviceSize = MediaQuery.of(context).size;
+    Size myDeviceSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         primary: false,
         backgroundColor: MyColor.backGroundColor,
-        body: Form(
-          key: _formKey,
+        body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -47,62 +47,129 @@ class _LoginScreenState extends State<LoginScreen> {
                   20,
                 ),
                 child: SvgPicture.asset(
-                  "${MyGlobalVariable.svgPath}LoginSVG_1.svg",
+                  "assets/svg/LoginSVG_1.svg",
+                  width: myDeviceSize.width * 0.6,
                   height: 158.35,
                 ),
               ),
               Card(
                 elevation: globals.cardElevation,
                 margin: const EdgeInsets.all(14),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(
-                        8.0,
-                      ),
-                      child: TextFormField(
-                        controller: _userIDController,
-                        decoration: InputDecoration(
-                          hintText: "User id",
-                          hintStyle: MyTextField.textFieldTextStyle,
-                          border: MyGlobalDeclaration.textfieldBorder,
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 14.0,
+                          top: 20.0,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter user id';
-                          }
-                          return null;
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(
-                        8.0,
-                      ),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                          hintText: "Password",
-                          hintStyle: MyTextField.textFieldTextStyle,
-                          border: MyGlobalDeclaration.textfieldBorder,
+                        child: Text(
+                          "Welcome Back",
+                          style: MyTextStyle.titleTextStyle,
                         ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter password';
-                          }
-                          return null;
-                        },
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(
+                          14.0,
+                        ),
+                        child: TextFormField(
+                          controller: _userIDController,
+                          decoration: InputDecoration(
+                            labelText: "User id",
+                            labelStyle: MyTextStyle.textFieldTextStyle,
+                            border: MyGlobalDeclaration.textfieldBorder,
+                            contentPadding: MyBoxModel.textFieldContentPadding,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter user id';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(
+                          14.0,
+                        ),
+                        child: TextFormField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                            labelText: "Password",
+                            labelStyle: MyTextStyle.textFieldTextStyle,
+                            border: MyGlobalDeclaration.textfieldBorder,
+                            contentPadding: MyBoxModel.textFieldContentPadding,
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter password';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(
+                          8,
+                        ),
+                        child: SwipeButton(
+                          key: const Key("SwipeKey"),
+                          thumb: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: const <Widget>[
+                              Align(
+                                widthFactor: 0.33,
+                                child: Icon(
+                                  Icons.chevron_right,
+                                ),
+                              ),
+                              Align(
+                                widthFactor: 0.33,
+                                child: Icon(
+                                  Icons.chevron_right,
+                                ),
+                              ),
+                              Align(
+                                widthFactor: 0.33,
+                                child: Icon(
+                                  Icons.chevron_right,
+                                ),
+                              ),
+                            ],
+                          ),
+                          content: const Center(
+                            child: Text('LOGIN'),
+                          ),
+                          onChanged: (result) {
+                            if (_formKey.currentState!.validate()) {
+                              debugPrint("Validate value!!!");
+                            }
+                          },
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(
+                              10,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 14,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              MaterialButton(
+              //Registration screen
+              TextButton(
                 onPressed: () {},
-                child: const Text(
-                  "Login",
+                child: Text(
+                  "Register now",
+                  style: MyTextStyle.titleTextStyle,
                 ),
               ),
+              const Text("Signup with google")
             ],
           ),
         ),

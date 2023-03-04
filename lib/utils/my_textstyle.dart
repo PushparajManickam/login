@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login/utils/my_colors.dart';
 
-class MyTextField {
+class MyTextStyle {
   static const double smallSize = 12;
   static const double defaultSize = 14;
   static const double normalSize = 16;
