@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: Text(
                           "Welcome Back",
-                          style: MyTextStyle.titleTextStyle,
+                          style: MyTextStyle.titleTextStyle1,
                         ),
                       ),
                       Padding(
@@ -166,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: () {},
                 child: Text(
                   "Register now",
-                  style: MyTextStyle.titleTextStyle,
+                  style: MyTextStyle.titleTextStyle1,
                 ),
               ),
               const Text("Signup with google")
