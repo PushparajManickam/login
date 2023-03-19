@@ -28,4 +28,9 @@ class MyTextStyle {
     fontSize: normalSize,
     fontWeight: FontWeight.w500,
   );
+   static TextStyle navigationTextStyle = GoogleFonts.spectral(
+    color: MyColor.appColor,
+    fontSize: normalSize,
+    fontWeight: FontWeight.bold,
+  );
 }

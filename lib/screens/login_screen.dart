@@ -4,6 +4,7 @@ import 'package:login/utils/globals.dart' as globals;
 import 'package:login/utils/my_box_model.dart';
 import 'package:login/utils/my_colors.dart';
 import 'package:login/utils/my_global_declaration.dart';
+import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_textstyle.dart';
 import 'package:login/widget/swipe_button.dart';
 
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         child: Text(
                           "Welcome Back",
+                          textScaleFactor: MyGlobalVariable.textScaleFactory,
                           style: MyTextStyle.titleTextStyle1,
                         ),
                       ),
@@ -79,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             labelText: "User id",
                             labelStyle: MyTextStyle.textFieldTextStyle,
-                            border: MyGlobalDeclaration.textfieldBorder,
+                            border: MyGlobalDeclarationProperty.textfieldBorder,
                             contentPadding: MyBoxModel.textFieldContentPadding,
                           ),
                           validator: (value) {
@@ -99,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: InputDecoration(
                             labelText: "Password",
                             labelStyle: MyTextStyle.textFieldTextStyle,
-                            border: MyGlobalDeclaration.textfieldBorder,
+                            border: MyGlobalDeclarationProperty.textfieldBorder,
                             contentPadding: MyBoxModel.textFieldContentPadding,
                           ),
                           validator: (value) {
@@ -140,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                           content: const Center(
-                            child: Text('LOGIN'),
+                            child: Text('LOGIN',textScaleFactor: MyGlobalVariable.textScaleFactory,),
                           ),
                           onChanged: (result) {
                             if (_formKey.currentState!.validate()) {
@@ -165,11 +167,12 @@ class _LoginScreenState extends State<LoginScreen> {
               TextButton(
                 onPressed: () {},
                 child: Text(
+                  textScaleFactor: MyGlobalVariable.textScaleFactory,
                   "Register now",
                   style: MyTextStyle.titleTextStyle1,
                 ),
               ),
-              const Text("Signup with google")
+              const Text("Signup with google",textScaleFactor: MyGlobalVariable.textScaleFactory,)
             ],
           ),
         ),

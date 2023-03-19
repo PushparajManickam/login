@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login/screens/registration_screen.dart';
 import 'package:login/utils/my_colors.dart';
+import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_lottie_url.dart';
 import 'package:login/utils/my_textstyle.dart';
 import 'package:login/widget/my_widget.dart';
@@ -32,6 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             const HeightSizedBox(),
             Text(
+              textScaleFactor: MyGlobalVariable.textScaleFactory,
               "Welcome",
               style: MyTextStyle.titleTextStyle,
             ),
@@ -60,6 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 child: Text(
                   "Get Started",
+                  textScaleFactor: MyGlobalVariable.textScaleFactory,
                   style: MyTextStyle.titleTextStyle1,
                 ),
               ),

@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:login/utils/my_box_model.dart';
 import 'package:login/utils/my_global_declaration.dart';
+import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_textstyle.dart';
 import 'package:login/widget/my_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -27,6 +30,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size _deviceSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade100,
@@ -34,12 +38,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           key: _formKey,
           child: Column(
             children: [
-              const SizedBox(
-                height: 25,
+              SizedBox(
+                height: _deviceSize.height * 0.05,
               ),
+              LottieBuilder.network(
+                'https://assets5.lottiefiles.com/packages/lf20_jcikwtux.json',
+                height: _deviceSize.height * 0.26,
+              ),
+              const HeightSizedBox(),
               Center(
                 child: Text(
                   "Registration Screen",
+                  textScaleFactor: MyGlobalVariable.textScaleFactory,
                   style: MyTextStyle.titleTextStyle,
                 ),
               ),
@@ -57,7 +67,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   decoration: InputDecoration(
                     labelText: "Name",
                     labelStyle: MyTextStyle.textFieldTextStyle,
-                    border: MyGlobalDeclaration.textfieldBorder,
+                    border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
                   validator: (value) {
@@ -79,7 +89,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   decoration: InputDecoration(
                     labelText: "User id",
                     labelStyle: MyTextStyle.textFieldTextStyle,
-                    border: MyGlobalDeclaration.textfieldBorder,
+                    border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
                   validator: (value) {
@@ -101,7 +111,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   decoration: InputDecoration(
                     labelText: "Password",
                     labelStyle: MyTextStyle.textFieldTextStyle,
-                    border: MyGlobalDeclaration.textfieldBorder,
+                    border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
                   validator: (value) {
@@ -129,8 +139,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 icon: const Icon(Icons.arrow_forward_ios),
                 label: const Text(
                   "Register",
+                  textScaleFactor: MyGlobalVariable.textScaleFactory,
                 ),
               ),
+              const HeightSizedBox(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Spacer(),
+                  Text(
+                    "Already have account",
+                    textScaleFactor: MyGlobalVariable.textScaleFactory,
+                    style: MyTextStyle.subTitleTextStyle,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  TextButton(
+                    onPressed: ()=> context.go('/login'),
+                    child: Text(
+                      "Login",
+                      textScaleFactor: MyGlobalVariable.textScaleFactory,
+                      style: MyTextStyle.navigationTextStyle,
+                    ),
+                  ),
+                  const Spacer(),
+                ],
+              ),
+              const HeightSizedBox(),
             ],
           ),
         ),

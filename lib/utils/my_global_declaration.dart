@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login/utils/my_colors.dart';
 
-class MyGlobalDeclaration {
+class MyGlobalDeclarationProperty {
   static BorderRadiusGeometry textfieldBorderRadius = const BorderRadius.all(
     Radius.circular(
       14,
