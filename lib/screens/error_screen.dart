@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ErrorScreen extends StatefulWidget {
-  const ErrorScreen();
+  const ErrorScreen({super.key});
 
   @override
   State<ErrorScreen> createState() => _ErrorScreenState();

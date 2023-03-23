@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_this
+
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 
@@ -15,7 +17,9 @@ class SwipeButton extends StatefulWidget {
     this.initialPosition = SwipePosition.swipeLeft,
     required this.onChanged,
     this.height = 56.0,
+  // ignore: unnecessary_null_comparison
   })  : assert(initialPosition != null && onChanged != null && height != null),
+        // ignore: prefer_initializing_formals
         this.borderRadius = borderRadius,
         super(key: key);
 
@@ -158,6 +162,7 @@ class SwipeButtonState extends State<SwipeButton>
       velocity,
     );
     _controller!.animateWith(simulation).then((_) {
+      // ignore: unnecessary_null_comparison
       if (widget.onChanged != null) {
         widget.onChanged(result);
       }
@@ -175,6 +180,7 @@ class _SwipeSimulation extends GravitySimulation {
 
   @override
   bool isDone(double time) {
+    // ignore: no_leading_underscores_for_local_identifiers
     final _x = x(time).abs();
     return _x <= 0.0 || _x >= 1.0;
   }
@@ -184,6 +190,7 @@ class _SwipeButtonClipper extends CustomClipper<RRect> {
   const _SwipeButtonClipper({
     required this.animation,
     required this.borderRadius,
+  // ignore: unnecessary_null_comparison
   })  : assert(animation != null && borderRadius != null),
         super(reclip: animation);
 

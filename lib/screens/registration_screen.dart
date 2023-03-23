@@ -30,7 +30,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size _deviceSize = MediaQuery.of(context).size;
+    Size deviceSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade100,
@@ -39,11 +39,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: Column(
             children: [
               SizedBox(
-                height: _deviceSize.height * 0.05,
+                height: deviceSize.height * 0.05,
               ),
               LottieBuilder.network(
                 'https://assets5.lottiefiles.com/packages/lf20_jcikwtux.json',
-                height: _deviceSize.height * 0.26,
+                height: deviceSize.height * 0.26,
               ),
               const HeightSizedBox(),
               Center(
@@ -125,16 +125,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const HeightSizedBox(),
               ElevatedButton.icon(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    print(_nameController.text.toString());
-                    print(_userIdController.text.toString());
-                    print(_passWordController.text.toString());
-                    addUser(
-                      "push",
-                      "pushparaj27",
-                      "password",
-                    );
-                  }
+                  if (_formKey.currentState!.validate()) {}
                 },
                 icon: const Icon(Icons.arrow_forward_ios),
                 label: const Text(
@@ -156,7 +147,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     width: 10,
                   ),
                   TextButton(
-                    onPressed: ()=> context.go('/login'),
+                    onPressed: () => context.go('/login'),
                     child: Text(
                       "Login",
                       textScaleFactor: MyGlobalVariable.textScaleFactory,
@@ -183,14 +174,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           'password': password // 42
         })
         .then(
-          (value) => print(
-            "User Added",
-          ),
+          (value) {}
         )
         .catchError(
-          (error) => print(
-            "Failed to add user: $error",
-          ),
+          (error){}
         );
   }
 }
