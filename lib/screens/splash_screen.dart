@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login/screens/registration_screen.dart';
+import 'package:go_router/go_router.dart';
 import 'package:login/utils/my_colors.dart';
 import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_lottie_url.dart';
@@ -54,12 +54,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     40,
                   ),
                 ),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const RegistrationScreen(),
-                  ),
-                ),
+                onPressed: () => context.go('/registration'),
+                
                 child: Text(
                   "Get Started",
                   textScaleFactor: MyGlobalVariable.textScaleFactory,
