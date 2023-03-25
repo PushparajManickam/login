@@ -11,29 +11,33 @@ import 'my_app_route_constant.dart';
 class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
     GoRouter router = GoRouter(
-      routes: [
+      // initialLocation: '/splashscreen',
+      routes: <RouteBase>[
         GoRoute(
-          name: MyAppRouteConstants.dashBoardRouteName,
           path: '/',
+          name: MyAppRouteConstants.splashScreenRouter,
           pageBuilder: (context, state) => const MaterialPage(
             child: SplashScreen(),
           ),
         ),
-      
          GoRoute(
-          path: 'dashboard',
+          path: '/dashboard',
+          name: MyAppRouteConstants.dashBoardRouter,
           builder: (BuildContext context, GoRouterState state) =>
              const DashBoardScreen(),
           
         ),
+      
           GoRoute(
-          path: 'login',
+          path: '/login',
+          name: MyAppRouteConstants.loginRouter,
           builder: (BuildContext context, GoRouterState state)=>
              const LoginScreen()
           
         ),
         GoRoute(
-          path: 'registration',
+          path: '/registration',
+          name: MyAppRouteConstants.registrationRouter,
           builder: (BuildContext context, GoRouterState state) =>
              const RegistrationScreen(),
           
