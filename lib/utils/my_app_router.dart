@@ -27,7 +27,6 @@ class MyAppRouter {
              const DashBoardScreen(),
           
         ),
-      
           GoRoute(
           path: '/login',
           name: MyAppRouteConstants.loginRouter,
