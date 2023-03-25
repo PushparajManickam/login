@@ -17,7 +17,6 @@ Future<void> main() async {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
@@ -34,6 +33,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: const SplashScreen(),
       routerConfig: MyAppRouter.returnRouter(false),
+      routeInformationParser:
+          MyAppRouter.returnRouter(false).routeInformationParser,
+      routerDelegate: MyAppRouter.returnRouter(false).routerDelegate,
     );
   }
 }
