@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login/utils/my_app_route_constant.dart';
 import 'package:login/utils/my_box_model.dart';
 import 'package:login/utils/my_global_declaration.dart';
 import 'package:login/utils/my_global_variable.dart';
@@ -53,9 +54,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   style: MyTextStyle.titleTextStyle,
                 ),
               ),
-              const SizedBox(
-                height: 25,
-              ),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(
                   left: 14.0,
@@ -122,10 +121,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   },
                 ),
               ),
-              const HeightSizedBox(),
+              const Spacer(),
               ElevatedButton.icon(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {
+                    context.go('/profile/${_userIdController.text}');
+                  }
                 },
                 icon: const Icon(Icons.arrow_forward_ios),
                 label: const Text(
@@ -133,7 +134,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   textScaleFactor: MyGlobalVariable.textScaleFactory,
                 ),
               ),
-              const HeightSizedBox(),
+              SizedBox(
+                height: deviceSize.height * 0.02,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -147,7 +150,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     width: 10,
                   ),
                   TextButton(
-                    onPressed: () => context.go('/login'),
+                    onPressed: () => context.go(MyAppRouteConstants.loginRouter),
                     child: Text(
                       "Login",
                       textScaleFactor: MyGlobalVariable.textScaleFactory,
@@ -157,7 +160,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const Spacer(),
                 ],
               ),
-              const HeightSizedBox(),
+              SizedBox(
+                height: deviceSize.height * 0.05,
+              ),
             ],
           ),
         ),
@@ -173,12 +178,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           'username': username, // Stokes and Sons
           'password': password // 42
         })
-        .then(
-          (value) {}
-        )
-        .catchError(
-          (error){}
-        );
+        .then((value) {})
+        .catchError((error) {});
   }
 }
 /*

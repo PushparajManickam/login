@@ -9,7 +9,9 @@ import 'package:login/utils/my_textstyle.dart';
 import 'package:login/widget/swipe_button.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({
+    super.key,
+  });
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -38,7 +40,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     value: globals.lightMode,
                     onChanged: (value) {
                       globals.lightMode = !globals.lightMode;
-                      setState(() {});
+                      setState(
+                        () {},
+                      );
                     },
                   ),
                 ],
@@ -55,7 +59,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Card(
                 elevation: globals.cardElevation,
-                margin: const EdgeInsets.all(14),
+                margin: const EdgeInsets.all(
+                  14,
+                ),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -117,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           8,
                         ),
                         child: SwipeButton(
-                          key: const Key("SwipeKey"),
+                          key: const Key("SwipeKey",),
                           thumb: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const <Widget>[
@@ -142,7 +148,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                           content: const Center(
-                            child: Text('LOGIN',textScaleFactor: MyGlobalVariable.textScaleFactory,),
+                            child: Text(
+                              'LOGIN',
+                              textScaleFactor:
+                                  MyGlobalVariable.textScaleFactory,
+                            ),
                           ),
                           onChanged: (result) {
                             if (_formKey.currentState!.validate()) {
@@ -163,7 +173,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              //Registration screen
               TextButton(
                 onPressed: () {},
                 child: Text(
@@ -172,7 +181,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: MyTextStyle.titleTextStyle1,
                 ),
               ),
-              const Text("Signup with google",textScaleFactor: MyGlobalVariable.textScaleFactory,)
+              const Text(
+                "Signup with google",
+                textScaleFactor: MyGlobalVariable.textScaleFactory,
+              )
             ],
           ),
         ),

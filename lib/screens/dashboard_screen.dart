@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DashBoardScreen extends StatefulWidget {
-  const DashBoardScreen({super.key});
+  const DashBoardScreen({
+    super.key,
+  });
 
   @override
   State<DashBoardScreen> createState() => _DashBoardScreenState();
@@ -13,7 +15,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
     return const SafeArea(
       child: Scaffold(
         body: Center(
-          child: Text("Dashboard screen"),
+          child: Text(
+            "Dashboard screen",
+          ),
         ),
       ),
     );
