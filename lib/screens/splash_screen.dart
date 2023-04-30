@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:login/screens/login_screen.dart';
-import 'package:login/utils/my_app_route_constant.dart';
 import 'package:login/utils/my_lottie_url.dart';
 import 'package:login/widget/my_widget.dart';
 import 'package:lottie/lottie.dart';
@@ -15,8 +13,6 @@ class SplashScreen extends StatelessWidget {
       Future.delayed(
         const Duration(seconds: 3),
         () {
-          //context.go(MyAppRouteConstants.loginRouter);
-          debugPrint('is navigated');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(

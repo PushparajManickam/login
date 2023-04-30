@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login/utils/my_app_route_constant.dart';
 import 'package:login/utils/my_box_model.dart';
+import 'package:login/utils/my_colors.dart';
 import 'package:login/utils/my_global_declaration.dart';
 import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_textstyle.dart';
@@ -51,7 +52,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Text(
                   "Registration Screen",
                   textScaleFactor: MyGlobalVariable.textScaleFactory,
-                  style: MyTextStyle.titleTextStyle,
+                  style:  Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const Spacer(),
@@ -65,7 +66,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   controller: _nameController,
                   decoration: InputDecoration(
                     labelText: "Name",
-                    labelStyle: MyTextStyle.textFieldTextStyle,
+                    labelStyle: Theme.of(context).textTheme.bodyMedium,
                     border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
@@ -87,7 +88,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   controller: _userIdController,
                   decoration: InputDecoration(
                     labelText: "User id",
-                    labelStyle: MyTextStyle.textFieldTextStyle,
+                    labelStyle:  Theme.of(context).textTheme.bodyMedium,
                     border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
@@ -109,7 +110,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   controller: _passWordController,
                   decoration: InputDecoration(
                     labelText: "Password",
-                    labelStyle: MyTextStyle.textFieldTextStyle,
+                    labelStyle:  Theme.of(context).textTheme.bodyMedium,
                     border: MyGlobalDeclarationProperty.textfieldBorder,
                     contentPadding: MyBoxModel.textFieldContentPadding,
                   ),
@@ -144,17 +145,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Text(
                     "Already have account",
                     textScaleFactor: MyGlobalVariable.textScaleFactory,
-                    style: MyTextStyle.subTitleTextStyle,
+                    style:  Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(
                     width: 10,
                   ),
                   TextButton(
-                    onPressed: () => context.go(MyAppRouteConstants.loginRouter),
+                    onPressed: () =>
+                        context.go(MyAppRouteConstants.loginRouter),
                     child: Text(
                       "Login",
                       textScaleFactor: MyGlobalVariable.textScaleFactory,
-                      style: MyTextStyle.navigationTextStyle,
+                      style:  Theme.of(context).textTheme.labelMedium,
                     ),
                   ),
                   const Spacer(),

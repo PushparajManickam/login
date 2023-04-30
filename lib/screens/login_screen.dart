@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Welcome Back",
                           textScaleFactor: MyGlobalVariable.textScaleFactory,
-                          style: MyTextStyle.titleTextStyle1,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
                       Padding(
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           controller: _userIDController,
                           decoration: InputDecoration(
                             labelText: "User id",
-                            labelStyle: MyTextStyle.textFieldTextStyle,
+                            labelStyle: Theme.of(context).textTheme.bodyMedium,
                             border: MyGlobalDeclarationProperty.textfieldBorder,
                             contentPadding: MyBoxModel.textFieldContentPadding,
                           ),
@@ -106,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           controller: _passwordController,
                           decoration: InputDecoration(
                             labelText: "Password",
-                            labelStyle: MyTextStyle.textFieldTextStyle,
+                            labelStyle: Theme.of(context).textTheme.bodyMedium,
                             border: MyGlobalDeclarationProperty.textfieldBorder,
                             contentPadding: MyBoxModel.textFieldContentPadding,
                           ),
@@ -178,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Text(
                   textScaleFactor: MyGlobalVariable.textScaleFactory,
                   "Register now",
-                  style: MyTextStyle.titleTextStyle1,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
               const Text(

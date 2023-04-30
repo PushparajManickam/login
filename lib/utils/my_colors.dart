@@ -18,6 +18,5 @@ class MyColor {
   static const purpleColor3 = Color(0xFF8A2BE2);
   static const purpleColor4 = Color(0xFF981DDD);
   static const purpleColor5 = Color(0xFFA020F0);
-  
-  
+  static const greyColor = Color(0xff808080);
 }

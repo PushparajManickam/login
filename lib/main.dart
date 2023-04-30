@@ -5,6 +5,7 @@ import 'package:login/utils/globals.dart' as globals;
 import 'package:login/utils/my_colors.dart';
 import 'firebase_options.dart';
 import 'utils/my_app_router.dart';
+import 'theme/my_theme.dart';
 
 bool shouldUseFirestoreEmulator = false;
 Future<void> main() async {
@@ -26,17 +27,11 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-   @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: MyColor.appColor,
-        ),
-      ),
+      theme: MyTheme.myThemeData,
       themeMode: globals.lightMode ? ThemeMode.light : ThemeMode.dark,
-      //MyTheme.lightTheme : MyTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       routerConfig: MyAppRouter.returnRouter(false),
       // routeInformationParser:
