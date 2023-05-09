@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:login/utils/globals.dart' as globals;
+import 'package:login/utils/my_app_route_constant.dart';
 import 'package:login/utils/my_box_model.dart';
 import 'package:login/utils/my_colors.dart';
 import 'package:login/utils/my_global_declaration.dart';
 import 'package:login/utils/my_global_variable.dart';
 import 'package:login/utils/my_textstyle.dart';
-import 'package:login/widget/swipe_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({
@@ -33,20 +34,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Switch(
-                    value: globals.lightMode,
-                    onChanged: (value) {
-                      globals.lightMode = !globals.lightMode;
-                      setState(
-                        () {},
-                      );
-                    },
-                  ),
-                ],
-              ),
               Container(
                 margin: const EdgeInsets.all(
                   20,
@@ -119,11 +106,61 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        child: ElevatedButton.icon(
+                          style: Theme.of(context).elevatedButtonTheme.style,
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.arrow_forward,
+                            size: MyTextStyle.largeSize,
+                          ),
+                          label: Text(
+                            "LOGIN",
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 14,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () => GoRouter.of(context).push(
+                  MyAppRouteConstants.registrationRouter,
+                ),
+                child: Text(
+                  textScaleFactor: MyGlobalVariable.textScaleFactory,
+                  "Register now",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
+              const Text(
+                "Signup with google",
+                textScaleFactor: MyGlobalVariable.textScaleFactory,
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/* //Swipe button
+ Padding(
                         padding: const EdgeInsets.all(
                           8,
                         ),
                         child: SwipeButton(
-                          key: const Key("SwipeKey",),
+                          key: const Key(
+                            "SwipeKey",
+                          ),
                           thumb: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const <Widget>[
@@ -166,29 +203,4 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 14,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Text(
-                  textScaleFactor: MyGlobalVariable.textScaleFactory,
-                  "Register now",
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-              ),
-              const Text(
-                "Signup with google",
-                textScaleFactor: MyGlobalVariable.textScaleFactory,
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+*/

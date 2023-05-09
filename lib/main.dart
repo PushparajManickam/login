@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:login/utils/globals.dart' as globals;
-import 'package:login/utils/my_colors.dart';
+
 import 'firebase_options.dart';
-import 'utils/my_app_router.dart';
 import 'theme/my_theme.dart';
+import 'utils/my_app_router.dart';
 
 bool shouldUseFirestoreEmulator = false;
 Future<void> main() async {
@@ -33,10 +33,10 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.myThemeData,
       themeMode: globals.lightMode ? ThemeMode.light : ThemeMode.dark,
       debugShowCheckedModeBanner: false,
-      routerConfig: MyAppRouter.returnRouter(false),
-      // routeInformationParser:
-      //     MyAppRouter.returnRouter(false).routeInformationParser,
-      // routerDelegate: MyAppRouter.returnRouter(false).routerDelegate,
+      // routerConfig: MyAppRouter.returnRouter(false),
+      routeInformationParser:
+          MyAppRouter.returnRouter(false).routeInformationParser,
+      routerDelegate: MyAppRouter.returnRouter(false).routerDelegate,
     );
   }
 }

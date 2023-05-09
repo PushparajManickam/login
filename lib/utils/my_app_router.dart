@@ -11,33 +11,39 @@ import 'my_app_route_constant.dart';
 class MyAppRouter {
   static GoRouter returnRouter(bool isAuth) {
     GoRouter router = GoRouter(
-      // initialLocation: '/splashscreen',
+      initialLocation: '/',
       routes: <RouteBase>[
         GoRoute(
           path: '/',
           name: MyAppRouteConstants.splashScreenRouter,
-          pageBuilder: (context, state) => const MaterialPage(
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
             child: SplashScreen(),
           ),
         ),
-     
         GoRoute(
           path: '/dashboard',
           name: MyAppRouteConstants.dashBoardRouter,
-          builder: (BuildContext context, GoRouterState state) =>
-              const DashBoardScreen(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: DashBoardScreen(),
+          ),
         ),
         GoRoute(
           path: '/login',
           name: MyAppRouteConstants.loginRouter,
-          builder: (BuildContext context, GoRouterState state) =>
-              const LoginScreen(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: LoginScreen(),
+          ),
         ),
         GoRoute(
           path: '/registration',
           name: MyAppRouteConstants.registrationRouter,
-          builder: (BuildContext context, GoRouterState state) =>
-              const RegistrationScreen(),
+          pageBuilder: (BuildContext context, GoRouterState state) =>
+              const MaterialPage(
+            child: RegistrationScreen(),
+          ),
         ),
         GoRoute(
           path: '/profile/:userId',
@@ -57,6 +63,16 @@ class MyAppRouter {
 
 
   /*
+   /*
+            GoRouter.of(context).push(Uri(path: '/about').toString());
+            GoRouter.of(context)
+                  .pushNamed(MyAppRouteConstants.profileRouteName, params: {
+                'username': 'Text user',
+                'userid': 'uhfhfhfdghfk'
+              });
+            GoRouter.of(context)
+                  .pushNamed(MyAppRouteConstants.contactUsRouteName); */
+                  
         GoRoute(
           name: MyAppRouteConstants.profileRouteName,
           path: '/profile/:username/:userid',
